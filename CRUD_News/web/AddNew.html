@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Add New</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Add New</h1>
+        <div style="width: 900px; margin-left: auto; margin-right: auto">
+            <form name="myForm" action="JSP/ManagerAddNew.jsp" onsubmit="return validateForm()" method="post">
+                Title:<br>
+                <input type="text" name="title" style="width: 200px" required><br>
+                Description:<br>
+                <input type="text" name="description" style="width: 200px" required><br>
+                Detail:<br>
+                <textarea name="detail" style="width: 400px; height: 200px" required></textarea><br>
+                Category: 
+                <select name="category" required>
+                    <option value="World">World</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Sport">Sport</option>
+                </select><br>
+                Image:<br>
+                <input type="text" name="image" style="width: 200px"><br>
+                <input type="submit" value="Submit">
+            </form>
+            <!--Complete Interface Addnew.-->
+        </div>
+        
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["title"].value;
+            if (x != "hi") {
+                alert("Name must be hi");
+                return false;
+            }
+        }
+
+    </script>
+    
+    </body>
+    
+</html>
+

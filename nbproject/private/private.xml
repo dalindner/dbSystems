@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/JSP/ManagerAddNew.jsp</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/dao/DataAccess.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/AllPost.jsp</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/index.html</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/servlet/DeletePost.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/db/DBUtils.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/model/News.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/servlet/AllPost.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/EditPost.jsp</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/AddNew.html</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/src/java/servlet/EditPost.java</file>
+            <file>file:/E:/ProjectNetBeans/WEBENT/CRUD_News/web/JSP/ManagerEditPost.jsp</file>
+        </group>
+    </open-files>
+</project-private>
