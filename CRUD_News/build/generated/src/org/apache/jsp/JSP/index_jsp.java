@@ -200,6 +200,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                 out.write(" - ");
                 out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.email}", java.lang.String.class, (PageContext)_jspx_page_context, null));
                 out.write("</h1>\n");
+                out.write("                            <br>\n");
+                out.write("                            <a href=\"/DbSystems/CreateRequest\">Request Help</a>\n");
+                out.write("                            <br>\n");
+                out.write("                            <a href=\"/DbSystems/CreateSupportType\">Create Support Type</a>\n");
+                out.write("                            <br>\n");
+                out.write("                            <a href=\"/DbSystems/ViewRequests\">View Requests</a>\n");
                 out.write("                        </div>\n");
                 out.write("                    ");
                 int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();

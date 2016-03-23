@@ -100,11 +100,18 @@
                 <% String email = ""; %>
         
                 <c:forEach items="${AllUser}" var="p">
+                    <p>${p.name}</p>
                     <c:if test="${p.loggedIn == 1}">
                         <% loggedIn = true; %>
                         <c:set var="email" value="${p.email}"/>
                         <div style="margin-left: 25%;">
                             <h1>Logged In, Welcome: ${p.name} - ${p.email}</h1>
+                            <br>
+                            <a href="/DbSystems/CreateRequest">Request Help</a>
+                            <br>
+                            <a href="/DbSystems/CreateSupportType">Create Support Type</a>
+                            <br>
+                            <a href="/DbSystems/ViewRequests">View Requests</a>
                         </div>
                     </c:if>
                 </c:forEach>

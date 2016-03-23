@@ -4,29 +4,30 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/Index.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/News.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/EditPost.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/LogIn.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/LogOut.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/DeletePost.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/AddNew.html</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Requests_for_help.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/CreateRequest.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/NewSupportType.jsp</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Event_requests.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/CreateSupportType.jsp</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/CreateSupportType.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/NewRequest.jsp</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/db/DBUtils.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/dao/DataAccess.java</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/SignUp.jsp</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/NewUser.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/AllPost.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/AllPost.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/EditPost.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/ViewRequests.java</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/ManagerEditPost.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/LogOut.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Password.java</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/LogIn.html</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/ManagerAddNew.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/NewUser.java</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/index.jsp</file>
-            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/LogIn.java</file>
             <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/User.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/ViewRequests.jsp</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Type_of_support.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/CreateRequest.jsp</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/NewRequest.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/sorter/tests/colspan.html</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Items_of_request.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/dao/DataAccess.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/servlet/AllPost.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/src/java/model/Requested_items_link.java</file>
+            <file>file:/C:/Users/Douglas/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/JSP/table.jsp</file>
         </group>
     </open-files>
 </project-private>
