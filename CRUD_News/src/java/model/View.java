@@ -10,6 +10,7 @@ package model;
  * @author Douglas
  */
 public class View {
+    private int supportType_id_fk;
     private int event_id_fk;
     private String requestedItem;
     private String item_category;
@@ -20,7 +21,8 @@ public class View {
     private int item_id_fk;
     private int requests_id_fk;
 
-    public View(int event_id_fk, String requestedItem, String item_category, int quantity, String description, String name, String email, int item_id_fk, int requests_id_fk) {
+    public View(int supportType_id_fk, int event_id_fk, String requestedItem, String item_category, int quantity, String description, String name, String email, int item_id_fk, int requests_id_fk) {
+        this.supportType_id_fk = supportType_id_fk;
         this.event_id_fk = event_id_fk;
         this.requestedItem = requestedItem;
         this.item_category = item_category;
@@ -30,6 +32,14 @@ public class View {
         this.email = email;
         this.item_id_fk = item_id_fk;
         this.requests_id_fk = requests_id_fk;
+    }
+
+    public int getSupportType_id_fk() {
+        return supportType_id_fk;
+    }
+
+    public void setSupportType_id_fk(int SupportType_id_fk) {
+        this.supportType_id_fk = SupportType_id_fk;
     }
 
     public int getEvent_id_fk() {

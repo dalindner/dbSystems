@@ -96,25 +96,57 @@
         <br>
         
         
-                <% boolean loggedIn = false; %>
-                <% String email = ""; %>
+        <% boolean loggedIn = false; %>
+        <% String email = ""; %>
         
                 <c:forEach items="${AllUser}" var="p">
-                    <p>${p.name}</p>
+                    
                     <c:if test="${p.loggedIn == 1}">
                         <% loggedIn = true; %>
                         <c:set var="email" value="${p.email}"/>
+                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
+
+                    </c:if>
+                    
+                    <c:forEach items="${AllAdmin}" var="q">
+                        <c:forEach items="${AllCCemp}" var="t">
+                    <c:if test="${p.loggedIn == 1}">
+                        <% loggedIn = true; %>
+                        <c:set var="email" value="${p.email}"/>
+                        <c:if test="${p.work_id == q.workId}">
                         <div style="margin-left: 25%;">
-                            <h1>Logged In, Welcome: ${p.name} - ${p.email}</h1>
-                            <br>
+                            <h1>Hi, Dear Admin
+                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
+                        </div> 
+                            
+                        </c:if>
+                        
+                        <c:if test="${p.work_id == t.id_fk}">
+                        <div style="margin-left: 25%;">
+                            <h1>Hi, Dear Call center employee
+                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
+                        </div> 
+                            
+                        </c:if>
+  
+                        
+                                                    <br>
                             <a href="/DbSystems/CreateRequest">Request Help</a>
                             <br>
                             <a href="/DbSystems/CreateSupportType">Create Support Type</a>
                             <br>
                             <a href="/DbSystems/ViewRequests">View Requests</a>
-                        </div>
-                    </c:if>
+                            <br>
+                            <a href="/DbSystems/NewDonation">Donate Items</a>
+                            <br>
+                            <a href="/DbSystems/ManageItems">Manage Items</a>
+                        </c:if>
+                    </c:forEach>
+                    </c:forEach>
                 </c:forEach>
+        
+        
+   
 
                 <%
                     if(loggedIn){ %>

@@ -193,6 +193,7 @@
             <table class="tablesorter">
                     <thead>
                             <tr>
+                                    <th>supportType_id_fk</th>
                                     <th>event_id_fk</th>
                                     <th>requestedItem</th>
                                     <th>item_category</th>
@@ -209,6 +210,7 @@
 
                         <c:forEach items="${AllData}" var="q">
                             <tr>
+                                <td>${q.supportType_id_fk}</td>
                                 <td>${q.event_id_fk}</td>
                                 <td>${q.requestedItem}</td>
                                 <td>${q.item_category}</td>
@@ -218,7 +220,7 @@
                                 <td>${q.email}</td>
                                 <td>${q.item_id_fk}</td>
                                 <td>${q.requests_id_fk}</td>
-                                <td><a href="/DbSystems/index">Donate</a></td>
+                                <td><a href="/DbSystems/DonationsMatched?id=${q.item_id_fk}">Donate</a></td>
                             </tr>
                         </c:forEach>   
                     </tbody>

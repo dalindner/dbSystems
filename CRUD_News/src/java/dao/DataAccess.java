@@ -23,6 +23,9 @@ import model.Requests_for_help;
 import model.Type_of_support;
 import model.IndexTrack;
 import model.View;
+import model.Donation;
+import model.MaxId;
+import model.Donation_link;
 
 /**
  *
@@ -101,6 +104,20 @@ public class DataAccess {
         }
     }
     
+    public void addNewDonationLink(Donation_link n){
+        
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into donation_link values(NULL, ?, ?, ?, ?)");
+            ps.setInt(1, n.getDonated_id_fk());
+            ps.setInt(2, n.getRequested_id_fk());
+            ps.setString(3, n.getDonator_email_fk());
+            ps.setString(4, n.getRequestor_email_fk());
+            ps.executeUpdate();        
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     
@@ -179,13 +196,52 @@ public class DataAccess {
         return ls;
     }
     
+    public static List<MaxId> getIndexOfDonation(){
+        List<MaxId> ls = new LinkedList<>();
+        
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("SELECT max(donationId) FROM donated_items").executeQuery();
+            while(rs.next()){
+                MaxId n = new MaxId(rs.getInt(1));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
+    
     public static List<View> getAllView(){
         List<View> ls = new LinkedList<>();
         
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from test6").executeQuery();
             while(rs.next()){
-                View n = new View(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9));
+                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
+    
+    
+    
+    public static List<View> getAView(int inputId){
+        List<View> ls = new LinkedList<>();
+        
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("select * from test6 where item_id_fk = ?");
+            ps.setInt(1, inputId);
+            ResultSet rs = ps.executeQuery();            
+            
+            while(rs.next()){
+                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -221,6 +277,36 @@ public class DataAccess {
             
             ps.setInt(1, requestNum);
             ps.setInt(2, itemNum);
+            ps.executeUpdate();
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void editRequestedItemQuantity(int id, int quantity){
+        try {
+            String sql = "update items_of_request SET quantity = ? where item_id = ?";
+            PreparedStatement ps= DBUtils.getPreparedStatement(sql);
+            
+            ps.setInt(1, quantity);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void editRequestedItemCompleted(int id, boolean completed){
+        try {
+            String sql = "update items_of_request SET completed = ? where item_id = ?";
+            PreparedStatement ps= DBUtils.getPreparedStatement(sql);
+            
+            ps.setBoolean(1, completed);
+            ps.setInt(2, id);
             ps.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException ex) {
@@ -319,6 +405,104 @@ public class DataAccess {
         }
     }
     
+    public void addNewDonation(Donation n){
+        
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into donated_items values(NULL,?,?,?,?)");
+            ps.setString(1, n.getItem_name());
+            ps.setString(2, n.getDescription());
+            ps.setInt(3, n.getCategory());
+            ps.setInt(4, n.getQuantity());
+            ps.executeUpdate();
+            
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static List<Donation> getAllDonation(){
+        List<Donation> ls = new LinkedList<>();
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("select * from donated_items").executeQuery();
+            while(rs.next()){
+                Donation n = new Donation(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }   
+    
+    public static List<Donation> getUnmatchedDonation(){
+        List<Donation> ls = new LinkedList<>();
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("select * from donated_items a where a.donationId in(select donated_id_fk from donation_link where requestor_email_fk = '')").executeQuery();
+            while(rs.next()){
+                Donation n = new Donation(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }  
+    
+    public static List<Donation> getAUnmatchedDonation(int inputId){
+        List<Donation> ls = new LinkedList<>();
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("select * from donated_items a where a.donationId in(select donated_id_fk from donation_link where requestor_email_fk = '') and a.donationId = ?");
+            
+            ps.setInt(1, inputId);
+            ResultSet rs = ps.executeQuery();  
+            
+            while(rs.next()){
+                Donation n = new Donation(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }  
+    
+    public void editDonation(int id, String item_name, String description, String category, int quantity){
+        try {
+            String sql = "update donated_items SET item_name = ?, description = ?, category = ?, quantity = ?";
+            PreparedStatement ps= DBUtils.getPreparedStatement(sql);
+            ps.setString(1, item_name);
+            ps.setString(2, description);
+            ps.setString(3, category);
+            ps.setInt(4, quantity);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void editDonation_link(int donationId, int requestId, String email){
+        try {
+            String sql = "update donation_link SET requested_id_fk = ?, requestor_email_fk = ? where donated_id_fk = ?";
+            PreparedStatement ps= DBUtils.getPreparedStatement(sql);
+            ps.setInt(1, requestId);
+            ps.setString(2, email);
+            ps.setInt(3, donationId);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
     public void updateViews(){
         try {
             String sql = "drop view if exists test, test1, test2, test3, test4, test5, test6";
@@ -341,11 +525,11 @@ public class DataAccess {
             ps = DBUtils.getPreparedStatement(sql);
             ps.executeUpdate();
             
-            sql = "CREATE VIEW test5 As select requestedItem, item_category, item_id_fk, quantity, requests_id_fk, description, name, email from test4 a join Type_of_Support b on a.SupportType_id_fk = b.SupportType_id";
+            sql = "CREATE VIEW test5 As select SupportType_id_fk, requestedItem, item_category, item_id_fk, quantity, requests_id_fk, description, name, email from test4 a join Type_of_Support b on a.SupportType_id_fk = b.SupportType_id";
             ps = DBUtils.getPreparedStatement(sql);
             ps.executeUpdate();
             
-            sql = "CREATE VIEW test6 As select event_id_fk, requestedItem, item_category, quantity, description, name, email, item_id_fk, requests_id_fk from test5 a join event_requests b on a.requests_id_fk = b.request_id_fk";
+            sql = "CREATE VIEW test6 As select SupportType_id_fk, event_id_fk, requestedItem, item_category, quantity, description, name, email, item_id_fk, requests_id_fk from test5 a join event_requests b on a.requests_id_fk = b.request_id_fk";
             ps = DBUtils.getPreparedStatement(sql);
             ps.executeUpdate();
             

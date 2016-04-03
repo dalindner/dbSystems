@@ -206,6 +206,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                 out.write("                            <a href=\"/DbSystems/CreateSupportType\">Create Support Type</a>\n");
                 out.write("                            <br>\n");
                 out.write("                            <a href=\"/DbSystems/ViewRequests\">View Requests</a>\n");
+                out.write("                            <br>\n");
+                out.write("                            <a href=\"/DbSystems/NewDonation\">Donate Items</a>\n");
+                out.write("                            <br>\n");
+                out.write("                            <a href=\"/DbSystems/ManageItems\">Manage Items</a>\n");
                 out.write("                        </div>\n");
                 out.write("                    ");
                 int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();

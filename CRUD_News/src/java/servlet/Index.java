@@ -9,6 +9,8 @@ package servlet;
 import dao.DataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
+import dao.AdminDataAccess;
+import dao.CCempDataAccess;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,6 +37,8 @@ public class Index extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("AllUser", DataAccess.getAllUser());
+        request.setAttribute("AllAdmin", AdminDataAccess.getAllAdmin());
+        request.setAttribute("AllCCemp", CCempDataAccess.getAllCCemp());
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/index.jsp");
         rd.forward(request, response);
     }
