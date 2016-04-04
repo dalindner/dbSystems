@@ -23,6 +23,7 @@ import model.Requests_for_help;
 import model.Type_of_support;
 import model.IndexTrack;
 import model.View;
+import model.ViewTwo;
 import model.Donation;
 import model.MaxId;
 import model.Donation_link;
@@ -230,6 +231,23 @@ public class DataAccess {
         return ls;
     }
     
+        public static List<ViewTwo> getAllView7(){
+        List<ViewTwo> ls = new LinkedList<>();
+        
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("select * from test7").executeQuery();
+            while(rs.next()){
+                ViewTwo n = new ViewTwo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
+    
     
     
     public static List<View> getAView(int inputId){
@@ -251,6 +269,26 @@ public class DataAccess {
         
         return ls;
     }
+    
+    public static List<ViewTwo> getAView7(int inputId){
+        List<ViewTwo> ls = new LinkedList<>();
+        
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("select * from test7 where item_id_fk = ?");
+            ps.setInt(1, inputId);
+            ResultSet rs = ps.executeQuery();            
+            
+            while(rs.next()){
+                ViewTwo n = new ViewTwo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }    
     
     public static List<View> getAViewByEvent(int inputId){
         List<View> ls = new LinkedList<>();

@@ -35,7 +35,7 @@ public class DonationsMatched extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idTemp = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("Data", DataAccess.getAView(idTemp));
+        request.setAttribute("Data", DataAccess.getAView7(idTemp));
         request.setAttribute("AllUser", DataAccess.getAllUser());
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/DonationsMatched.jsp");
         rd.forward(request, response);

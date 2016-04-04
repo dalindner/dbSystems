@@ -34,7 +34,7 @@ public class ViewRequests extends HttpServlet {
         DataAccess access = new DataAccess();
         access.updateViews();
         request.setAttribute("AllUser", DataAccess.getAllUser());
-        request.setAttribute("AllData", DataAccess.getAllView());
+        request.setAttribute("AllData", DataAccess.getAllView7());
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/ViewRequests.jsp");
         rd.forward(request, response);
     }
