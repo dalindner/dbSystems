@@ -31,6 +31,8 @@ public class ViewRequests extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        DataAccess access = new DataAccess();
+        access.updateViews();
         request.setAttribute("AllUser", DataAccess.getAllUser());
         request.setAttribute("AllData", DataAccess.getAllView());
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/ViewRequests.jsp");

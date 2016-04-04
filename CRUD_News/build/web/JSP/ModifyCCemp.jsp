@@ -91,16 +91,16 @@
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>Change call center</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h3>Change call center</h3>
+            <br>
             <form name="myForm" action="/DbSystems/JSP/finalEditCCemp.jsp"  method="post">
                 
                 *Select Call Center:<br>
@@ -108,7 +108,7 @@
                 
                 
                 <c:forEach items="${TheCCemp}" var="t">
-                <select id="type1" name="type1" value =${t.cc_id}>
+                <select id="type1" name="type1" style="width:100%" value =${t.cc_id}>
                             <c:forEach items="${AllCC}" var="p">
                                 <c:if test="${p.active == 1}">
                                 <option value=${p.cc_id}>${p.cc_name}
@@ -116,13 +116,13 @@
                             </c:forEach>
                 </select>
 
-                <br><br>
+                <br>
                 
-                <input type="text" name="WorkId" value = ${t.id_fk} style="width:200px;display:none" required><br>
+                <input type="text" name="WorkId" value = ${t.id_fk} style="width:100%;display:none" required><br>
                 
-                <input type="text" name="Available" value = ${t.available} style="width:200px;display:none" required><br>
+                <input type="text" name="Available" value = ${t.available} style="width:100%;display:none" required>
                 
-                <input type="text" name="cc_emp_id" value = ${t.cc_emp_id} style="width:200px;display:none" required><br>
+                <input type="text" name="cc_emp_id" value = ${t.cc_emp_id} style="width:100%;display:none" required>
                 <input type="submit" value="Submit">
                 </c:forEach>
             </form>

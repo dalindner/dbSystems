@@ -92,38 +92,39 @@
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>New Call center</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h3>New Call center</h3>
             <form name="myForm" action="/DbSystems/JSP/AddCC.jsp"  method="post">
                 
                 
 
-                <br><br>
+                <br>
                 *Call Center Name: (any)<br>
-                <input type="text" name="CCname" style="width: 200px" required><br>
+                <input type="text" name="CCname" style="width: 100%" required><br>
                 *Zip: <br>
-                <input type="text" name="Zip" style="width: 200px" required><br>
+                <input type="text" name="Zip" style="width: 100%" required><br>
                 *Phone Number: <br>
-                <input type="text" name="PhoneNum" style="width: 200px" required><br>
+                <input type="text" name="PhoneNum" style="width: 100%" required><br>
                 *Address: <br>
-                <input type="text" name="Address" style="width: 200px" required><br>
-                *Active: <br>
-                <input type="text" name="Active" style="width: 200px" required><br>
+                <input type="text" name="Address" style="width: 100%" required>
+ 
+                <input type="text" name="Active" style="width: 100%;display:none" value="1" required><br>
                 *Select Event:<br>
                 
-                <select id="type1" name="type1">
+                <select id="type1" name="type1" style="width: 100%">
                             <c:forEach items="${AllEvents}" var="t">
                                 <option value=${t.eventId}>${t.eventName}
                             </c:forEach>
                 </select>
+                <br>
+                <br>
 
                 <input type="submit" value="Submit">
             </form>

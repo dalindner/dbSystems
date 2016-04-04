@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.News;
+import model.MaxId;
 import model.callcenter;
 
 /**
@@ -89,9 +90,23 @@ public class CCDataAccess {
         }
         
     }
-
     
-
+    public static List<MaxId> getCCWorkedFor(int userId){
+        List<MaxId> ls = new LinkedList<>();
+        String sql = "SELECT cc_id_fk from call_center_emp where id_fk = " + userId;
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
+            while(rs.next()){
+                MaxId n = new MaxId(rs.getInt(1));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
     
     public void deleteCC(int cc_id){
         try {

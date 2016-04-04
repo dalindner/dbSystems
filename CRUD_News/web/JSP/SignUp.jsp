@@ -90,21 +90,21 @@ and open the template in the editor.
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>Sign Up</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h1>Sign Up</h1>
+            <br>
             <form name="myForm" action="/DbSystems/NewUser" onsubmit="return validateForm()" method="post">
                 
                 *Select Account Type:<br>
                 
-                <select id="mySelect" onchange="myFunction()">
+                <select id="mySelect" style="width: 100%" onchange="myFunction()">
                   <option value="General">General
                   <option value="CallCenter">Call Center
                 </select>
@@ -126,37 +126,37 @@ and open the template in the editor.
 
                 <br><br>
                 *Name: (any)<br>
-                <input type="text" name="name" style="width: 200px" required><br>
+                <input type="text" name="name" style="width: 100%" required><br>
                 
-                <div id = "divId" style="display:none">
+                <div id = "divId" style="display:none;width: 100%">
                     *Work ID: (integer)<br>
-                    <input type="text" name="workId" style="width: 200px" ><br>
+                    <input type="text" name="workId" style="width: 100%" ><br>
                 </div>
                 
                 *Date of Birth: (yyyy/mm/dd)<br>
-                <input type="date" name="dob" style="width: 200px" required><br>
+                <input type="date" name="dob" style="width: 100%" required><br>
                 *Gender:<br>
-                <select name="gender" required>
+                <select name="gender" style="width: 100%" required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select><br>
                 *Address: (must have # and street)<br>
-                <input type="text" name="address" style="width: 200px" required><br>
+                <input type="text" name="address" style="width: 100%" required><br>
                 *Zip: (5 digits)<br>
-                <input type="text" name="zip" style="width: 200px" required><br>
+                <input type="text" name="zip" style="width: 100%" required><br>
                 *Phone: (10 digits)<br>
-                <input type="text" name="phone" style="width: 200px" required><br>
+                <input type="text" name="phone" style="width: 100%" required><br>
                 Phone Backup: (10 digits)<br>
-                <input type="text" name="phoneBackup" style="width: 200px"><br>
+                <input type="text" name="phoneBackup" style="width: 100%"><br>
                 *Email: (standard format)<br>
-                <input type="email" name="email" style="width: 200px" required><br>
+                <input type="email" name="email" style="width: 100%" required><br>
                 Email Backup: (standard format)<br>
-                <input type="email" name="emailBackup" style="width: 200px"><br>
+                <input type="email" name="emailBackup" style="width: 100%"><br>
                 *Password: (8 digits, at least one: special char, digit, lowercase, uppercase)<br>
-                <input type="password" name="password" style="width: 200px" required><br>
+                <input type="password" name="password" style="width: 100%" required><br>
                 *Password Confirmation: (match Password)<br>
-                <input type="password" name="passwordConfirmation" style="width: 200px" required><br>
-
+                <input type="password" name="passwordConfirmation" style="width: 100%" required><br>
+                <br>
                 <input type="submit" value="Submit">
             </form>
             <!--Complete Interface Addnew.-->

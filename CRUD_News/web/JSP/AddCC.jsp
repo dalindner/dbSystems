@@ -32,7 +32,7 @@
             callcenter n = new callcenter(0,CCname,Zip,PhoneNum,Address,1,event);
             CCDataAccess da = new CCDataAccess();
             da.addCC(n);
-            //response.sendRedirect("/DbSystems/index");
+            response.sendRedirect("/DbSystems/index");
             
         %>
         <%= CCname %>

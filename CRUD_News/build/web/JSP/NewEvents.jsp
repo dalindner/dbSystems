@@ -91,32 +91,32 @@
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>New Event</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h3>New Event</h3>
+            <br>
             <form name="myForm" action="/DbSystems/JSP/AddEvent.jsp"  method="post">
                 
                 *Select Event Type:<br>
                 
-                <select id="type1" name="type1">
+                <select id="type1" name="type1" style="width: 100%">
                             <c:forEach items="${AllDisaster}" var="t">
-                                <option value=${t.disaster_id}>${t.disaster_id}
+                                <option value=${t.disaster_id}>${t.name}
                             </c:forEach>
                 </select>
 
-                <br><br>
+                <br>
                 *EventName: (any)<br>
-                <input type="text" name="EventName" style="width: 200px" required><br>
+                <input type="text" name="EventName" style="width: 100%" required><br>
                 *Zip: <br>
-                <input type="text" name="Zip" style="width: 200px" required><br>
-                
+                <input type="text" name="Zip" style="width: 100%" required><br>
+                <br>
                 <input type="submit" value="Submit">
             </form>
             <!--Complete Interface Addnew.-->

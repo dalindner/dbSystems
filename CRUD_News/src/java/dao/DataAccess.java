@@ -217,9 +217,9 @@ public class DataAccess {
         List<View> ls = new LinkedList<>();
         
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from test6").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from test8").executeQuery();
             while(rs.next()){
-                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10));
+                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11), rs.getInt(12));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -236,12 +236,32 @@ public class DataAccess {
         List<View> ls = new LinkedList<>();
         
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("select * from test6 where item_id_fk = ?");
+            PreparedStatement ps = DBUtils.getPreparedStatement("select * from test8 where item_id_fk = ?");
             ps.setInt(1, inputId);
             ResultSet rs = ps.executeQuery();            
             
             while(rs.next()){
-                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10));
+                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11), rs.getInt(12));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
+    
+    public static List<View> getAViewByEvent(int inputId){
+        List<View> ls = new LinkedList<>();
+        
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("select * from test8 where cc_id = ?");
+            ps.setInt(1, inputId);
+            ResultSet rs = ps.executeQuery();            
+            
+            while(rs.next()){
+                View n = new View(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11), rs.getInt(12));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -505,7 +525,7 @@ public class DataAccess {
     
     public void updateViews(){
         try {
-            String sql = "drop view if exists test, test1, test2, test3, test4, test5, test6";
+            String sql = "drop view if exists test, test1, test2, test3, test4, test5, test6, test7, test8";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.executeUpdate();
             
@@ -533,7 +553,13 @@ public class DataAccess {
             ps = DBUtils.getPreparedStatement(sql);
             ps.executeUpdate();
             
+            sql = "CREATE VIEW test7 As select SupportType_id_fk, event_id_fk, requestedItem, item_category, quantity, description, a.name, email, item_id_fk, requests_id_fk, b.event_name from test6 a join events b on a.event_id_fk = b.event_id";
+            ps = DBUtils.getPreparedStatement(sql);
+            ps.executeUpdate();
             
+            sql = "CREATE VIEW test8 As select SupportType_id_fk, event_id_fk, requestedItem, item_category, quantity, description, name, email, item_id_fk, requests_id_fk, event_name, cc_id from test7 a join call_center b on a.event_id_fk = b.event_id";
+            ps = DBUtils.getPreparedStatement(sql);
+            ps.executeUpdate();
             
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {

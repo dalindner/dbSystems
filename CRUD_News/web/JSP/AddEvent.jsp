@@ -31,7 +31,7 @@
             Events n = new Events(0,EventName,Zip,type1);
             EventDataAccess da = new EventDataAccess();
             da.addEvent(n);
-            //response.sendRedirect("/DbSystems/index");
+            response.sendRedirect("/DbSystems/index");
             
         %>
         

@@ -38,10 +38,11 @@ public class ManageItems2 extends HttpServlet {
         int idTemp = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int cc = Integer.parseInt(request.getParameter("cc"));
         request.setAttribute("name", name);
         request.setAttribute("quantity", quantity);
         request.setAttribute("AllSupportTypes", DataAccess.getAllSupportTypes());
-        request.setAttribute("AllData", DataAccess.getAllView());
+        request.setAttribute("AllData", DataAccess.getAViewByEvent(cc));
         request.setAttribute("Unmatched", DataAccess.getAUnmatchedDonation(idTemp));
         RequestDispatcher rd = request.getRequestDispatcher("JSP/ManageItems2.jsp");
         rd.forward(request, response);

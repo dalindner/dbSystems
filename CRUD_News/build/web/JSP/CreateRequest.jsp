@@ -105,7 +105,7 @@
             </c:forEach>
 
 
-            <div style="width: 900px; margin-left: 40%; margin-right: auto">
+            <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
                 <h3>Create Request</h3>
                 <br>
                 <form name="myForm" action="/DbSystems/NewRequest" method="post">
@@ -113,111 +113,121 @@
                     <input type="number" name="numEntries" style="width: 200px; display: none" value=1><br>
                     
                     *Select the event you were affected by<br>
-                    <select id="event" name="event">
-                      <option value=1>Event1
-                      <option value=2>Event2
+                    <select id="event" name="event" style="width: 100%">
+                        <c:forEach items="${AllEvents}" var="t">
+                                <option value=${t.eventId}>${t.eventName}
+                        </c:forEach>
                     </select>
                     <br>
                     <br>
                     
                     Request Notes <br>
-                    <textarea  type="text" name="description" style="width: 200px"></textarea><br><br>
+                    <textarea  type="text" name="description" style="width: 100%;"></textarea><br><br>
                     
-                    <div id = "item1" style="width: 200px; border-style: solid">                     
+                    <div id = "item1" style="width: 100%">                     
                         
                         *Request <br>
-                        <input type="text" name="request1" style="width: 200px" required value="Item Name"><br>
+                        <input type="text" name="request1" style="width: 100%" required value="Item Name"><br>
                         
                         *Quantity <br>
-                        <input type="number" name="quantity1" style="width: 200px" required min="1" value=1><br>
+                        <input type="number" name="quantity1" style="width: 100%" required min="1" value=1><br>
                         
                         *Type of Request <br>
-                        <select id="type1" name="type1">
+                        <select id="type1" name="type1" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
                         </select>
                         <br>
+                        <br>
+                        <br>
 
                     </div>
                     
-                    <div id = "item2" style="width: 200px; border-style: solid; display: none">
+                    <div id = "item2" style="width: 100%; display: none">
                         
                         *Request <br>
-                        <input type="text" name="request2" style="width: 200px" required value="Item Name"><br>
+                        <input type="text" name="request2" style="width: 100%" required value="Item Name"><br>
                         
                         *Quantity <br>
-                        <input type="number" name="quantity2" style="width: 200px" required min="1" value=1><br>
+                        <input type="number" name="quantity2" style="width: 100%" required min="1" value=1><br>
                         
                         *Type of Request <br>
-                        <select id="type2" name="type2">
+                        <select id="type2" name="type2" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
                         </select>
                         <br>
+                        <br>
+                        <br>
 
                     </div>
                     
-                    <div id = "item3" style="width: 200px; border-style: solid; display: none">
+                    <div id = "item3" style="width: 100%; display: none">
                         
                         *Request <br>
-                        <input type="text" name="request3" style="width: 200px" required value="Item Name"><br>
+                        <input type="text" name="request3" style="width: 100%" required value="Item Name"><br>
                         
                         *Quantity <br>
-                        <input type="number" name="quantity3" style="width: 200px" required min="1" value=1><br>
+                        <input type="number" name="quantity3" style="width: 100%" required min="1" value=1><br>
                         
                         *Type of Request <br>
-                        <select id="type3" name="type3">
+                        <select id="type3" name="type3" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
                         </select>
                         <br>
+                        <br>
+                        <br>
 
                     </div>
                     
-                    <div id = "item4" style="width: 200px; border-style: solid; display: none">
+                    <div id = "item4" style="width: 100%; display: none">
                         
                         *Request <br>
-                        <input type="text" name="request4" style="width: 200px" required value="Item Name"><br>
+                        <input type="text" name="request4" style="width: 100%" required value="Item Name"><br>
                         
                         *Quantity <br>
-                        <input type="number" name="quantity4" style="width: 200px" required min="1" value=1><br>
+                        <input type="number" name="quantity4" style="width: 100%" required min="1" value=1><br>
                         
                         *Type of Request <br>
-                        <select id="type4" name="type4">
+                        <select id="type4" name="type4" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
                         </select>
                         <br>
+                        <br>
+                        <br>
 
                     </div>
                     
-                    <div id = "item5" style="width: 200px; border-style: solid; display: none">
+                    <div id = "item5" style="width: 100%; display: none">
                         
                         *Request <br>
-                        <input type="text" name="request5" style="width: 200px" required value="Item Name"><br>
+                        <input type="text" name="request5" style="width: 100%" required value="Item Name"><br>
                         
                         *Quantity <br>
-                        <input type="number" name="quantity5" style="width: 200px" required min="1" value=1><br>
+                        <input type="number" name="quantity5" style="width: 100%" required min="1" value=1><br>
                         
                         *Type of Request <br>
-                        <select id="type5" name="type5">
+                        <select id="type5" name="type5" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
                         </select>
+                        <br>
+                        <br>
                         <br>
 
                     </div>                 
                     
-                    <br>
                     <div id = "addItem">
                         <button type="button" onclick="add()">Add Item</button>
                     </div>
-                    <br>
+
                     <div id = "removeItem" style="display: none">
                         <button type="button" onclick="remov()" >Remove Item</button>
                     </div>

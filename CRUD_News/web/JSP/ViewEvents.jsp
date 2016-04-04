@@ -186,6 +186,8 @@
                                     <th>EventName</th>
                                     <th>Zip</th>
                                     <th>event_type_fk</th>
+                                    <th>delete event</th>
+                                    <th>modify event</th>
                             </tr>
                     </thead>
                     <tbody>

@@ -187,7 +187,8 @@
                 
                 
                 
-                
+            <c:set var="cc" value="${cc}"/>
+            <% String cc = pageContext.getAttribute("cc").toString(); %>
                 
                 
                 
@@ -222,7 +223,7 @@
                                 
                                 <td>${q.quantity}</td>
                                 
-                               <td><a href="/DbSystems/ManageItems2?id=${q.donationId}&name=${q.item_name}&quantity=${q.quantity}">Select</a></td>
+                               <td><a href="/DbSystems/ManageItems2?id=${q.donationId}&name=${q.item_name}&quantity=${q.quantity}&cc=${cc}">Select</a></td>
                             </tr>
                         </c:forEach>   
                     </tbody>

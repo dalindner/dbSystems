@@ -7,6 +7,7 @@
 package servlet;
 
 import dao.DataAccess;
+import dao.EventDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -36,6 +37,7 @@ public class CreateRequest extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("AllUser", DataAccess.getAllUser());
         request.setAttribute("AllSupportTypes", DataAccess.getAllSupportTypes());
+        request.setAttribute("AllEvents", EventDataAccess.getAllEvent());
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/CreateRequest.jsp");
         rd.forward(request, response);
     }

@@ -95,7 +95,9 @@
         
         <br>
         
-        
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+           
+            
         <% boolean loggedIn = false; %>
         <% String email = ""; %>
         
@@ -104,85 +106,83 @@
                     <c:if test="${p.loggedIn == 1}">
                         <% loggedIn = true; %>
                         <c:set var="email" value="${p.email}"/>
-                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
+                        <h1>Welcome: ${p.name} </h1><br>
 
-                    </c:if>
+                    
                     
                     <c:forEach items="${AllAdmin}" var="q">
-                        <c:forEach items="${AllCCemp}" var="t">
-                    <c:if test="${p.loggedIn == 1}">
-                        <% loggedIn = true; %>
-                        <c:set var="email" value="${p.email}"/>
-                        <c:if test="${p.work_id == q.workId}">
-                        <div style="margin-left: 25%;">
-                            <h1>Hi, Dear Admin
-                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
-                        </div> 
-                            
-                        </c:if>
                         
-                        <c:if test="${p.work_id == t.id_fk}">
-                        <div style="margin-left: 25%;">
-                            <h1>Hi, Dear Call center employee
-                                Logged In, Welcome: ${p.name} - ${p.email}</h1>
-                        </div> 
                             
-                        </c:if>
-  
-                        
-                                                    <br>
-                            <a href="/DbSystems/CreateRequest">Request Help</a>
+                        <c:if test="${p.workId == q.workId}">
+                            <h2>*Admin</h2>
+                            <a href="/DbSystems/ViewEvents">View Events</a>
+                            <br>
+                            <a href="/DbSystems/ViewCCemp">View Call Center Employees</a>
+                            <br>
+                            <a href="/DbSystems/ViewCC">View Call Centers</a>
+                            <br>
+                            <a href="/DbSystems/NewEvents">Create Event</a>
+                            <br>
+                            <a href="/DbSystems/NewCC">Create Call Center</a>
                             <br>
                             <a href="/DbSystems/CreateSupportType">Create Support Type</a>
-                            <br>
-                            <a href="/DbSystems/ViewRequests">View Requests</a>
-                            <br>
-                            <a href="/DbSystems/NewDonation">Donate Items</a>
-                            <br>
-                            <a href="/DbSystems/ManageItems">Manage Items</a>
+                        </c:if>
+                        
+                    </c:forEach>
+                            
+                     <c:forEach items="${AllCCemp}" var="t">
+                         <c:if test="${p.workId == t.id_fk}">
+                            <h2>*Call Center Employee</h2>
+                            <a href="/DbSystems/ManageItems?user=${p.workId}">Manage Items</a>
                         </c:if>
                     </c:forEach>
-                    </c:forEach>
+                    </c:if>
                 </c:forEach>
-        
-        
-   
+                            
+                            
+                            
+      
 
                 <%
                     if(loggedIn){ %>
                         <% email = pageContext.getAttribute("email").toString(); %>
+                        
+                        <br>
+                        <br>
+                        <br>
+                        <a href="/DbSystems/CreateRequest">Request Help</a>
+                        <br>
+                        <a href="/DbSystems/NewDonation">Donate Items</a>
+                        <br>
+                        <a href="/DbSystems/ViewRequests">View Requests</a>
+                        </div>
                 <%
                     }
                     else{ %>
-                    <div style="margin-left: 25%;">
                         <h1>Welcome, You Must Log In or Create An Account</h1>
-                    </div>
                     <br>
                     <br>
                     <br>
                     
-                        <div style="width: 900px; margin-left: 40%; margin-right: auto">
                             <h3>Log In</h3>
                             <br>
                             <form name="myForm" action="LogIn" method="post">
                                 Email:<br>
-                                <input type="email" name="email" style="width: 200px" required><br>
+                                <input type="email" name="email" style="width: 100%" required><br>
                                 Password:<br>
-                                <input type="password" name="password" style="width: 200px" required><br>
-
+                                <input type="password" name="password" style="width: 100%" required><br>
+                                <br>
                                 <input type="submit" value="Submit">
                             </form>
                             <!--Complete Interface Addnew.-->
-                        </div>
                     <br>
                     <br>
-                        <div style="width: 900px; margin-left: 40%; margin-right: auto">
                             <h3>Sign Up</h3>
                             <br>
                             <form name="myForm" action="JSP/SignUp.jsp" method="post">
                                 <input type="submit" value="Sign Up">
                             </form>
-                        </div>
+                            </div>
                     <%
                     }
                     

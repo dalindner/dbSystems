@@ -6,6 +6,7 @@
 
 package servlet;
 
+import dao.EventDataAccess;
 import dao.DataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;

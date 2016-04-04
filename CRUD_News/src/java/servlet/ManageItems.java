@@ -7,7 +7,12 @@
 package servlet;
 
 import dao.DataAccess;
+import dao.CCDataAccess;
+import model.MaxId;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -33,10 +39,15 @@ public class ManageItems extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //request.setAttribute("AllDonation", DataAccess.getAllDonation());
+        throws ServletException, IOException {
+        int user = Integer.parseInt(request.getParameter("user"));
+        List<MaxId> test = CCDataAccess.getCCWorkedFor(user);
+        int number = test.get(0).getItem_id();
+        request.setAttribute("cc", number);
+        DataAccess access = new DataAccess();
+        access.updateViews();
         request.setAttribute("AllSupportTypes", DataAccess.getAllSupportTypes());
-        request.setAttribute("AllData", DataAccess.getAllView());
+        request.setAttribute("AllData", DataAccess.getAViewByEvent(number));
         request.setAttribute("Unmatched", DataAccess.getUnmatchedDonation());
         RequestDispatcher rd = request.getRequestDispatcher("JSP/ManageItems.jsp");
         rd.forward(request, response);

@@ -96,9 +96,7 @@ and open the template in the editor.
             
 
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>Make A Donation</h1>
-        </div>
+
         <br>     
         
         <% 
@@ -121,29 +119,31 @@ and open the template in the editor.
         <c:forEach items="${Data}" var="p">
         
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h1>Make A Donation</h1>
+            <br>
             <form name="myForm" action="/DbSystems/JSP/NewMatchedDonation.jsp" method="post">
                
                 *Item Name: (any)<br>
-                <input type="text" name="item_name" style="width: 200px" required value = "${p.requestedItem}" disabled><br><br>
+                <input type="text" name="item_name" style="width: 100%" required value = "${p.requestedItem}" disabled><br><br>
                 
                 *Donation Description: (any)<br>
-                <input type="text" name="description" style="width: 200px" required  ><br><br>
+                <input type="text" name="description" style="width: 100%" required  ><br><br>
        
                 
                 *Select Donation Category:<br>
-                <input type="text" name="categoryName" style="width: 200px" required value = "${p.item_category}" disabled><br><br>
+                <input type="text" name="categoryName" style="width: 100%" required value = "${p.item_category}" disabled><br><br>
                 
                 *Quantity: <br>
-                <input type="number" name="quantity" style="width: 200px" required min="1" max="${p.quantity}" value=1><br><br>
+                <input type="number" name="quantity" style="width: 100%" required min="1" max="${p.quantity}" value=1><br><br>
                 
-                <input type="number" name="quantityRequested" style="width: 200px;display:none" value=${p.quantity}>
-                <input type="number" name="item_id_fk" style="width: 200px;display:none" value=${p.item_id_fk}>
-                <input type="text" name="item" style="width: 200px;display:none" value="${p.requestedItem}" >
-                <input type="number" name="category" style="width: 200px;display:none" value=${p.supportType_id_fk}>
-                <input type="text" name="requested_id_fk" style="width: 200px;display:none" value="${p.requests_id_fk}" >
-                <input type="text" name="donator_email_fk" style="width: 200px;display:none" value="<%=email%>">
-                <input type="text" name="requestor_email_fk" style="width: 200px;display:none" value="${p.email}">
+                <input type="number" name="quantityRequested" style="width: 100%;display:none" value=${p.quantity}>
+                <input type="number" name="item_id_fk" style="width: 100%;display:none" value=${p.item_id_fk}>
+                <input type="text" name="item" style="width: 100%;display:none" value="${p.requestedItem}" >
+                <input type="number" name="category" style="width: 100%;display:none" value=${p.supportType_id_fk}>
+                <input type="text" name="requested_id_fk" style="width: 100%;display:none" value="${p.requests_id_fk}" >
+                <input type="text" name="donator_email_fk" style="width: 100%;display:none" value="<%=email%>">
+                <input type="text" name="requestor_email_fk" style="width: 100%;display:none" value="${p.email}">
 
                 
                 

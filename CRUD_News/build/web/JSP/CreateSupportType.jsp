@@ -100,16 +100,16 @@
             </c:forEach>
 
 
-            <div style="width: 900px; margin-left: 40%; margin-right: auto">
+            <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
                 <h3>Create Support Type</h3>
                 <br>
                 <form name="myForm" action="/DbSystems/JSP/NewSupportType.jsp" method="post">
                                         
                     *Enter the support type<br>
-                    <input type="text" name="typeOfSupport" style="width: 200px" required><br>
+                    <input type="text" name="typeOfSupport" style="width: 100%" required><br>
                     
                     <br>
-                    <br>
+
                     
 
                     <input type="submit" value="Submit">

@@ -15,13 +15,23 @@ public class Disaster {
     private String zip;
     private int duration_days;
     private String transportation_needed;
+    private String name;
     
-    public Disaster(int disaster_id, int duration_days, String date_created, String transportation_needed,String zip) {
+    public Disaster(int disaster_id, int duration_days, String date_created, String transportation_needed,String zip, String name) {
         this.disaster_id = disaster_id;
         this.date_created = date_created;
         this.zip = zip;
         this.duration_days = duration_days;
         this.transportation_needed =transportation_needed;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getdisaster_id() {

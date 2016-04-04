@@ -92,26 +92,26 @@ and open the template in the editor.
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>Make A Donation</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+             <h3>Make A Donation</h3>
+             <br>
             <form name="myForm" action="/DbSystems/NewDonations" method="post">
                
                 *Item Name: (any)<br>
-                <input type="text" name="name" style="width: 200px" required><br><br>
+                <input type="text" name="name" style="width: 100%" required><br><br>
                 
                 *Donation Description: (any)<br>
-                <input type="text" name="description" style="width: 200px" required><br><br>       
+                <input type="text" name="description" style="width: 100%" required><br><br>       
                 
                 *Select Donation Category:<br>
-                <select id="category" name="category">
+                <select id="category" name="category" style="width: 100%">
                             <c:forEach items="${AllSupportTypes}" var="t">
                                 <option value=${t.supportType_id}>${t.item_category}
                             </c:forEach>
@@ -148,7 +148,7 @@ and open the template in the editor.
                 </div>-->
                 
                 *Quantity: <br>
-                <input type="number" name="quantity" style="width: 200px" required min="1" value=1><br><br>
+                <input type="number" name="quantity" style="width: 100%" required min="1" value=1><br><br>
                 <!--*Gender:<br>
                 <select name="gender" required>
                     <option value="Male">Male</option>

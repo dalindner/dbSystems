@@ -25,11 +25,12 @@ public class DisasterDataAccess {
     public void addDisaster(Disaster n){
         
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into disasters values(NULL,?,?,?,?)");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into disasters values(NULL,?,?,?,?,?)");
             ps.setInt(1, n.getduration_days());
             ps.setString(2, n.getdate_created());
             ps.setString(3, n.gettransportation_needed());
             ps.setString(4,n.getzip());
+            ps.setString(5,n.getzip());
             ps.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException ex) {
@@ -45,7 +46,7 @@ public class DisasterDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from disasters").executeQuery();
             while(rs.next()){
-                Disaster n = new Disaster(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4),rs.getString(5));
+                Disaster n = new Disaster(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4),rs.getString(5),rs.getString(6));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {

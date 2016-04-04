@@ -20,8 +20,10 @@ public class View {
     private String email;
     private int item_id_fk;
     private int requests_id_fk;
+    private String event_name;
+    private int cc_id;
 
-    public View(int supportType_id_fk, int event_id_fk, String requestedItem, String item_category, int quantity, String description, String name, String email, int item_id_fk, int requests_id_fk) {
+    public View(int supportType_id_fk, int event_id_fk, String requestedItem, String item_category, int quantity, String description, String name, String email, int item_id_fk, int requests_id_fk, String event_name, int cc_id) {
         this.supportType_id_fk = supportType_id_fk;
         this.event_id_fk = event_id_fk;
         this.requestedItem = requestedItem;
@@ -32,6 +34,24 @@ public class View {
         this.email = email;
         this.item_id_fk = item_id_fk;
         this.requests_id_fk = requests_id_fk;
+        this.event_name = event_name;
+        this.cc_id = cc_id;
+    }
+
+    public int getCc_id() {
+        return cc_id;
+    }
+
+    public void setCc_id(int cc_id) {
+        this.cc_id = cc_id;
+    }
+
+    public String getEvent_name() {
+        return event_name;
+    }
+
+    public void setEvent_name(String event_name) {
+        this.event_name = event_name;
     }
 
     public int getSupportType_id_fk() {

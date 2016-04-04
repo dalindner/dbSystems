@@ -89,37 +89,37 @@
              
         <div class="content" >
 
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
-            <h1>New Event</h1>
-        </div>
+
         <br>     
         
         <% 
             //String type = request.getParameter("accountType");  
         %>
         
-        <div style="width: 900px; margin-left: 40%; margin-right: auto">
+        <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
+            <h3>New Event</h3>
+            <br>
             <form name="myForm" action="/DbSystems/JSP/finalEdit.jsp"  method="post">
                 
                 *Select Event Type:<br>
                 
                 
                 
-                <c:forEach items="${TheEvent}" var="t">
-                <select id="type1" name="type1" value =${t.event_type_fk}>
+                <c:forEach items="${TheEvent}" var="t" >
+                <select id="type1" name="type1" style="width: 100%" value =${t.event_type_fk}>
                             <c:forEach items="${AllEvents}" var="p">
-                                <option value=${p.event_type_fk}>${p.event_type_fk}
+                                <option value=${p.event_type_fk}>${p.eventName}
                             
                             </c:forEach>
                 </select>
 
-                <br><br>
-                *EventName: (any)<br>
-                <input type="text" name="EventName" value = ${t.eventName} style="width: 200px" required><br>
-                *Zip: <br>
-                <input type="text" name="Zip" value = ${t.zip} style="width: 200px" required><br>
                 <br>
-                <input type="text" name="eventid" value = ${t.eventId} style="width:200px;display:none" required><br>
+                *EventName: (any)<br>
+                <input type="text" name="EventName"  style="width: 100%" required value = ${t.eventName}><br>
+                *Zip: <br>
+                <input type="text" name="Zip" value = ${t.zip} style="width: 100%" required><br>
+                <br>
+                <input type="text" name="eventid" value = ${t.eventId} style="width:200px;display:none" required>
                 <input type="submit" value="Submit">
                 </c:forEach>
             </form>
